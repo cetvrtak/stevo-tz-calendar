@@ -1,0 +1,30 @@
+/* src/components/YearCircle.scss */
+
+.year-circle-container {
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+  
+  .circle-svg {
+    width: 600px;
+    height: 600px;
+  }
+  
+  .year-text {
+    font-size: 24px;
+    font-weight: bold;
+  
+    &.from-year {
+      margin-right: 20px;
+    }
+  
+    &.to-year {
+      margin-left: 20px;
+    }
+  }
+  
