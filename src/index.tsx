@@ -5,7 +5,9 @@ import './App.scss';
 const App = () => {
     return (
         <div className="container">
-            <h1>Hello, React with TypeScript!</h1>
+            <div className="main">
+                <h1>Исторические даты</h1>
+            </div>
         </div>
     );
 };
