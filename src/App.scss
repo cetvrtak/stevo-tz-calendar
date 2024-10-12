@@ -1,0 +1,25 @@
+// src/App.scss
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+body {
+  font-family: 'PT Sans', sans-serif;
+}
+
+#root {
+    height: 100vh;
+    background: url(http://localhost:8080/7b5ba0b0dc6773b504be.png) top center no-repeat;
+    background-color: rgb(244, 245, 249);
+}
+
+.container {
+    max-width: 1440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
