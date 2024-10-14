@@ -1,4 +1,3 @@
-// src/components/YearCircle.tsx
 import React from 'react';
 import './YearCircle.scss';
 
@@ -10,10 +9,11 @@ interface YearCircleProps {
 const YearCircle: React.FC<YearCircleProps> = ({ fromYear, toYear }) => {
   const radius = 268;
   const dots = 6;
+  const startAngle = -60; // Start at 30 degrees to place dot #1 at the top right
 
   // Generate dot positions on the circle using polar coordinates
   const dotPositions = Array.from({ length: dots }, (_, i) => {
-    const angle = (i * 360) / dots;
+    const angle = startAngle + (i * 360) / dots;
     const radians = (angle * Math.PI) / 180;
     const x = radius + radius * Math.cos(radians);
     const y = radius + radius * Math.sin(radians);
