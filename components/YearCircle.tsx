@@ -28,10 +28,10 @@ const YearCircle: React.FC<YearCircleProps> = ({ fromYear, toYear }) => {
       {/* Circle and Dots */}
       <svg className="circle-svg" width="600" height="600">
         {/* Circle */}
-        <circle cx="300" cy="300" r={radius} stroke="black" strokeWidth="2" fill="none" />
+        <circle cx="300" cy="300" r={radius} stroke="rgb(66, 86, 122, 0.2)" strokeWidth="1" fill="none" />
 
         {/* Center circle */}
-        <circle cx="300" cy="300" r="10" fill="black" />
+        {/* <circle cx="300" cy="300" r="10" fill="black" /> */}
 
         {/* Dots around the circle */}
         {dotPositions.map((pos, index) => (
@@ -41,7 +41,7 @@ const YearCircle: React.FC<YearCircleProps> = ({ fromYear, toYear }) => {
               className="dot"
               cx={pos.x + 32}
               cy={pos.y + 32}
-              r="6" // Default radius before hover
+              r="3" // Default radius before hover
               fill="black"
             />
             {/* Dot Index (1-based) */}
