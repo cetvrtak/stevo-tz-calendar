@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './YearCircle.scss';
 
 interface YearCircleProps {
@@ -11,9 +11,12 @@ const YearCircle: React.FC<YearCircleProps> = ({ fromYear, toYear }) => {
   const dots = 6;
   const startAngle = -60; // Start at 30 degrees to place dot #1 at the top right
 
+  // State to track the currently selected dot (initially dot #1, which is index 0)
+  const [selectedDot, setSelectedDot] = useState(0);
+
   // Generate dot positions on the circle using polar coordinates
   const dotPositions = Array.from({ length: dots }, (_, i) => {
-    const angle = startAngle + (i * 360) / dots;
+    const angle = startAngle + (i * 360) / dots; // Rotate by -60 degrees
     const radians = (angle * Math.PI) / 180;
     const x = radius + radius * Math.cos(radians);
     const y = radius + radius * Math.sin(radians);
@@ -38,11 +41,13 @@ const YearCircle: React.FC<YearCircleProps> = ({ fromYear, toYear }) => {
           <g key={index}>
             {/* Dot */}
             <circle
-              className="dot"
+              className={`dot ${selectedDot === index ? 'selected' : ''}`} // Add 'selected' class if the dot is selected
               cx={pos.x + 32}
               cy={pos.y + 32}
-              r="3" // Default radius before hover
-              fill="black"
+              r={selectedDot === index ? 28 : 3} // Increase radius if selected
+              fill={selectedDot === index ? 'rgb(244, 245, 249)' : 'black'} // Change color if selected
+              onClick={() => setSelectedDot(index)} // Update selected dot on click
+              style={{ cursor: 'pointer' }}
             />
             {/* Dot Index (1-based) */}
             <text

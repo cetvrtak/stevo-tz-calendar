@@ -21,7 +21,8 @@
   z-index: 3;
 }
 
-g:hover .dot {
+g:hover .dot,
+.dot.selected {
   r: 28;
   fill: rgb(244, 245, 249);
   outline: 1px solid rgba(48, 62, 88, 0.5);
@@ -34,7 +35,8 @@ g:hover .dot {
   cursor: pointer;
 }
 
-g:hover .dot+text {
+g:hover .dot+text,
+.dot.selected+text {
   display: flex;
 }
 
