@@ -1,56 +1,58 @@
-/* src/components/YearCircle.scss */
-
 .year-circle-container {
-    width: 100%;
-    position: absolute;
-    top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
+  width: 100%;
+  position: absolute;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.circle-svg {
+  width: 600px;
+  height: 600px;
+  position: relative;
+  z-index: 2;
+}
+
+.dot {
+  transition: r 0.3s ease; /* Smoothly transition the radius */
+  cursor: pointer;
+  z-index: 3;
+}
+
+g:hover .dot {
+  r: 28;
+  fill: rgb(244, 245, 249);
+  outline: 1px solid rgba(48, 62, 88, 0.5);
+  border-radius: 50%;
+}
+
+.dot+text {
+  display: none;
+  fill: #42567A;
+  cursor: pointer;
+}
+
+g:hover .dot+text {
+  display: flex;
+}
+
+.year-text {
+  position: absolute;
+  font-size: 200px;
+  font-weight: 700;
+  line-height: 160px;
+  text-align: center;
+  z-index: 1;
+
+  &.from-year {
+    color: #3877EE;
+    margin-right: 535px;
   }
 
-  .circle-svg {
-    width: 600px;
-    height: 600px;
+  &.to-year {
+    color: #ef5da8;
+    margin-left: 535px;
   }
-  
-  .dot {
-    transition: r 0.3s ease; /* Smoothly transition the radius */
-    cursor: pointer;
-  }
-  
-  g:hover .dot {
-    r: 28;
-    fill: rgb(244, 245, 249);
-    outline: 1px solid rgba(48, 62, 88, 0.5);
-    border-radius: 50%;
-  }
-
-  .dot+text {
-    display: none;
-    fill: #42567A;
-    cursor: pointer;
-  }
-  g:hover .dot+text {
-    display: flex;
-  }
-  
-  .year-text {
-    position: absolute;
-    font-size: 200px;
-    font-weight: 700;
-    line-height: 160px;
-    text-align: center;
-  
-    &.from-year {
-      color: #3877EE;
-      margin-right: 535px;
-    }
-  
-    &.to-year {
-      color: #ef5da8;
-      margin-left: 535px;
-    }
-  }
-  
+}
