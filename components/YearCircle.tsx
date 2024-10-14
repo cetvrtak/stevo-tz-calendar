@@ -14,14 +14,17 @@ const YearCircle: React.FC<YearCircleProps> = ({ fromYear, toYear }) => {
   // State to track the currently selected dot (initially dot #1, which is index 0)
   const [selectedDot, setSelectedDot] = useState(0);
 
-  // Generate dot positions on the circle using polar coordinates
-  const dotPositions = Array.from({ length: dots }, (_, i) => {
-    const angle = startAngle + (i * 360) / dots; // Rotate by -60 degrees
-    const radians = (angle * Math.PI) / 180;
-    const x = radius + radius * Math.cos(radians);
-    const y = radius + radius * Math.sin(radians);
-    return { x, y };
-  });
+  // Generate dot positions dynamically
+  const generateDotPositions = (offsetIndex: number) =>
+    Array.from({ length: dots }, (_, i) => {
+      const angle = startAngle + ((i - offsetIndex + dots) % dots) * (360 / dots);
+      const radians = (angle * Math.PI) / 180;
+      const x = radius + radius * Math.cos(radians);
+      const y = radius + radius * Math.sin(radians);
+      return { x, y };
+    });
+
+  const dotPositions = generateDotPositions(selectedDot);
 
   return (
     <div className="year-circle-container">
@@ -38,16 +41,16 @@ const YearCircle: React.FC<YearCircleProps> = ({ fromYear, toYear }) => {
 
         {/* Dots around the circle */}
         {dotPositions.map((pos, index) => (
-          <g key={index}>
+          <g key={index} onClick={() => setSelectedDot(index)} // Update selected dot on click
+          >
             {/* Dot */}
             <circle
-              className={`dot ${selectedDot === index ? 'selected' : ''}`} // Add 'selected' class if the dot is selected
+              className={`dot ${selectedDot === index ? 'selected' : ''}`}
               cx={pos.x + 32}
               cy={pos.y + 32}
-              r={selectedDot === index ? 28 : 3} // Increase radius if selected
-              fill={selectedDot === index ? 'rgb(244, 245, 249)' : 'black'} // Change color if selected
-              onClick={() => setSelectedDot(index)} // Update selected dot on click
-              style={{ cursor: 'pointer' }}
+              r={selectedDot === index ? 28 : 3}
+              fill={selectedDot === index ? 'rgb(244, 245, 249)' : 'black'}
+              style={{ cursor: 'pointer', transition: 'cx 0.5s ease, cy 0.5s ease' }} // Smooth transition for dot position
             />
             {/* Dot Index (1-based) */}
             <text
