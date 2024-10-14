@@ -6,10 +6,10 @@
     top: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin: 0 auto;
   }
-  
+
   .circle-svg {
     width: 600px;
     height: 600px;
@@ -37,15 +37,20 @@
   }
   
   .year-text {
-    font-size: 24px;
-    font-weight: bold;
+    position: absolute;
+    font-size: 200px;
+    font-weight: 700;
+    line-height: 160px;
+    text-align: center;
   
     &.from-year {
-      margin-right: 20px;
+      color: #3877EE;
+      margin-right: 535px;
     }
   
     &.to-year {
-      margin-left: 20px;
+      color: #ef5da8;
+      margin-left: 535px;
     }
   }
   
