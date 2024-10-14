@@ -8,7 +8,7 @@ interface YearCircleProps {
 }
 
 const YearCircle: React.FC<YearCircleProps> = ({ fromYear, toYear }) => {
-  const radius = 268; // Updated radius
+  const radius = 268;
   const dots = 6;
 
   // Generate dot positions on the circle using polar coordinates
@@ -29,13 +29,34 @@ const YearCircle: React.FC<YearCircleProps> = ({ fromYear, toYear }) => {
       <svg className="circle-svg" width="600" height="600">
         {/* Circle */}
         <circle cx="300" cy="300" r={radius} stroke="black" strokeWidth="2" fill="none" />
-        
+
         {/* Center circle */}
         <circle cx="300" cy="300" r="10" fill="black" />
 
         {/* Dots around the circle */}
         {dotPositions.map((pos, index) => (
-          <circle key={index} cx={pos.x + 32} cy={pos.y + 32} r="8" fill="black" />
+          <g key={index}>
+            {/* Dot */}
+            <circle
+              className="dot"
+              cx={pos.x + 32}
+              cy={pos.y + 32}
+              r="6" // Default radius before hover
+              fill="black"
+            />
+            {/* Dot Index (1-based) */}
+            <text
+              x={pos.x + 32}
+              y={pos.y + 32}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fill="#42567A"
+              fontSize="20px"
+              fontWeight="400"
+            >
+              {index + 1}
+            </text>
+          </g>
         ))}
       </svg>
 

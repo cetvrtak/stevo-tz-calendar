@@ -15,6 +15,27 @@
     height: 600px;
   }
   
+  .dot {
+    transition: r 0.3s ease; /* Smoothly transition the radius */
+    cursor: pointer;
+  }
+  
+  g:hover .dot {
+    r: 28;
+    fill: rgb(244, 245, 249);
+    outline: 1px solid rgba(48, 62, 88, 0.5);
+    border-radius: 50%;
+  }
+
+  .dot+text {
+    display: none;
+    fill: #42567A;
+    cursor: pointer;
+  }
+  g:hover .dot+text {
+    display: flex;
+  }
+  
   .year-text {
     font-size: 24px;
     font-weight: bold;
