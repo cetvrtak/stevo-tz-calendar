@@ -1,0 +1,21 @@
+.navigation {
+    /* Group 28422798 */
+    position: absolute;
+    width: 120px;
+    height: 88px;
+    left: 80px;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navigation-arrows {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}

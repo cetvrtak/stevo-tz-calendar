@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import './YearCircle.scss';
+import Navigation from '../components/Navigation';
 
 gsap.registerPlugin(MotionPathPlugin);
 
@@ -133,6 +134,9 @@ const YearCircle: React.FC<YearCircleProps> = ({ fromYear, toYear }) => {
 
       {/* To Year */}
       <div className="year-text to-year">{toYear}</div>
+
+      {/* Navigation */}
+      <Navigation selectedDot={selectedDot} dots={dots} handleDotSelection={setSelectedDot} />
     </div>
   );
 };
