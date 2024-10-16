@@ -1,6 +1,6 @@
 .year-circle-container {
   width: 100%;
-  position: absolute;
+  position: relative;
   top: 10px;
   display: flex;
   align-items: center;
@@ -8,10 +8,15 @@
   margin: 0 auto;
 }
 
+.year-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .circle-svg {
   width: 600px;
   height: 600px;
-  position: relative;
   z-index: 2;
 }
 

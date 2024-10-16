@@ -6,10 +6,7 @@ import YearCircle from '../components/YearCircle';
 const App = () => {
     return (
         <div className="container">
-            <div className="main">
-                <h1>Исторические даты</h1>
-                <YearCircle />
-            </div>
+            <YearCircle />
         </div>
     );
 };

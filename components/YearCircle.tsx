@@ -232,53 +232,57 @@ const YearCircle: React.FC = () => {
   };
 
   return (
-    <div className="year-circle-container">
-      {/* From Year */}
-      <div className="year-text from-year">{fromYear}</div>
+    <>
+      <div className="year-circle-container">
+        <h1 className='year-title'>Исторические даты</h1>
 
-      {/* Circle and Dots */}
-      <svg className="circle-svg" width="600" height="600">
-        {/* Circle */}
-        <circle cx="300" cy="300" r={radius} stroke="rgb(66, 86, 122, 0.2)" strokeWidth="1" fill="none" />
+        {/* From Year */}
+        <div className="year-text from-year">{fromYear}</div>
 
-        {/* Dots around the circle */}
-        {slotsData.map((data, index) => (
-          <g
-            key={index}
-            ref={(el) => (dotRefs.current[index] = el)} // Save each dot reference
-            onClick={() => handleDotClick(index)} // Update selected dot on click
-          >
-            {/* Dot */}
-            <circle
-              className={`dot ${selectedDot === index ? 'selected' : ''}`}
-              cx={data.x}
-              cy={data.y}
-              r={selectedDot === index ? 28 : 3}
-              fill={selectedDot === index ? 'rgb(244, 245, 249)' : 'black'}
-              style={{ cursor: 'pointer' }} // Smooth transition for dot position and size
-            />
-            {/* Dot Index (1-based) */}
-            <text
-              x={data.x}
-              y={data.y}
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fill="#42567A"
-              fontSize="20px"
-              fontWeight="400"
+        {/* Circle and Dots */}
+        <svg className="circle-svg" width="600" height="600">
+          {/* Circle */}
+          <circle cx="300" cy="300" r={radius} stroke="rgb(66, 86, 122, 0.2)" strokeWidth="1" fill="none" />
+
+          {/* Dots around the circle */}
+          {slotsData.map((data, index) => (
+            <g
+              key={index}
+              ref={(el) => (dotRefs.current[index] = el)} // Save each dot reference
+              onClick={() => handleDotClick(index)} // Update selected dot on click
             >
-              {index + 1}
-            </text>
-          </g>
-        ))}
-      </svg>
+              {/* Dot */}
+              <circle
+                className={`dot ${selectedDot === index ? 'selected' : ''}`}
+                cx={data.x}
+                cy={data.y}
+                r={selectedDot === index ? 28 : 3}
+                fill={selectedDot === index ? 'rgb(244, 245, 249)' : 'black'}
+                style={{ cursor: 'pointer' }} // Smooth transition for dot position and size
+              />
+              {/* Dot Index (1-based) */}
+              <text
+                x={data.x}
+                y={data.y}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fill="#42567A"
+                fontSize="20px"
+                fontWeight="400"
+              >
+                {index + 1}
+              </text>
+            </g>
+          ))}
+        </svg>
 
-      {/* To Year */}
-      <div className="year-text to-year">{toYear}</div>
+        {/* To Year */}
+        <div className="year-text to-year">{toYear}</div>
 
-      {/* Navigation */}
-      <Navigation selectedDot={selectedDot} dots={dots} handleDotSelection={setSelectedDot} />
-    </div>
+        {/* Navigation */}
+        <Navigation selectedDot={selectedDot} dots={dots} handleDotSelection={setSelectedDot} />
+      </div>
+    </>
   );
 };
 
