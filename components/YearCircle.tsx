@@ -7,8 +7,8 @@ import Navigation from '../components/Navigation';
 const data = [
   {
     title: 'Музика',
-    yearFrom: 1969,
-    yearTo: 1977,
+    fromYear: 1969,
+    toYear: 1977,
     events: [
       {
         year: 1969,
@@ -34,8 +34,8 @@ const data = [
   },
   {
     title: 'Кино',
-    yearFrom: 1987,
-    yearTo: 1991,
+    fromYear: 1987,
+    toYear: 1991,
     events: [
       {
         year: 1987,
@@ -53,8 +53,8 @@ const data = [
   },
   {
     title: 'Литература',
-    yearFrom: 1992,
-    yearTo: 1997,
+    fromYear: 1992,
+    toYear: 1997,
     events: [
       {
         year: 1992,
@@ -64,8 +64,8 @@ const data = [
   },
   {
     title: 'Балет',
-    yearFrom: 1919,
-    yearTo: 1965,
+    fromYear: 1919,
+    toYear: 1965,
     events: [
       {
         year: 1919,
@@ -75,8 +75,8 @@ const data = [
   },
   {
     title: 'Исскуство',
-    yearFrom: 2012,
-    yearTo: 2022,
+    fromYear: 2012,
+    toYear: 2022,
     events: [
       {
         year: 2012,
@@ -94,12 +94,12 @@ const data = [
   },
   {
     title: 'Наука',
-    yearFrom: 0,
-    yearTo: 0,
+    fromYear: 1932,
+    toYear: 2024,
     events: [
       {
-        year: 0,
-        desc: '',
+        year: 1932,
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, hic laudantium fugiat maxime incidunt deserunt, odit quis qui, recusandae vero possimus sapiente cumque aspernatur!',
       }
     ]
   },
@@ -194,7 +194,7 @@ const YearCircle: React.FC<YearCircleProps> = ({ fromYear, toYear }) => {
   return (
     <div className="year-circle-container">
       {/* From Year */}
-      <div className="year-text from-year">{fromYear}</div>
+      <div className="year-text from-year">{data[selectedDot].fromYear}</div>
 
       {/* Circle and Dots */}
       <svg className="circle-svg" width="600" height="600">
@@ -234,7 +234,7 @@ const YearCircle: React.FC<YearCircleProps> = ({ fromYear, toYear }) => {
       </svg>
 
       {/* To Year */}
-      <div className="year-text to-year">{toYear}</div>
+      <div className="year-text to-year">{data[selectedDot].toYear}</div>
 
       {/* Navigation */}
       <Navigation selectedDot={selectedDot} dots={dots} handleDotSelection={setSelectedDot} />
