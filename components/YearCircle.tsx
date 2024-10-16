@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import './YearCircle.scss';
 import Navigation from '../components/Navigation';
+import YearSwiper from './YearSwiper';
 
 const data = [
   {
@@ -282,6 +283,9 @@ const YearCircle: React.FC = () => {
         {/* Navigation */}
         <Navigation selectedDot={selectedDot} dots={dots} handleDotSelection={setSelectedDot} />
       </div>
+
+      {/* Swiper */}
+      <YearSwiper events={data[selectedDot].events} />
     </>
   );
 };
