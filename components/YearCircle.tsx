@@ -114,6 +114,8 @@ const YearCircle: React.FC = () => {
 
   // State to track the currently selected dot (initially dot #1, which is index 0)
   const [selectedDot, setSelectedDot] = useState(0);
+  const [fromYear, setFromYear] = useState(data[selectedDot].fromYear);
+  const [toYear, setToYear] = useState(data[selectedDot].toYear);
   const previousDotRef = useRef<number>(0);
   const hasBeenRendered = useRef<Boolean>(false);
   const dotRefs = useRef<(SVGGElement | null)[]>([]); // Allow null for refs
@@ -168,11 +170,54 @@ const YearCircle: React.FC = () => {
     });
   };
   
-
+  // Function to animate the year change (countdown/up effect)
+  const animateYearChange = () => {
+    const targetFromYear = data[selectedDot].fromYear;
+    const targetToYear = data[selectedDot].toYear;
+  
+    const fromYearSteps = Math.abs(targetFromYear - fromYear);
+    const toYearSteps = Math.abs(targetToYear - toYear);
+  
+    const animationDuration = 1000;
+  
+    // Calculate the step durations for both fromYear and toYear, ensuring they complete in 1000ms
+    const fromYearStepDuration = fromYearSteps > 0 ? animationDuration / fromYearSteps : animationDuration;
+    const toYearStepDuration = toYearSteps > 0 ? animationDuration / toYearSteps : animationDuration;
+  
+    // Clear any existing intervals if necessary
+    let fromYearInterval: NodeJS.Timeout | null = null;
+    let toYearInterval: NodeJS.Timeout | null = null;
+  
+    if (fromYearSteps > 0) {
+      fromYearInterval = setInterval(() => {
+        setFromYear((prevFromYear) => {
+          if (prevFromYear === targetFromYear) {
+            if (fromYearInterval) clearInterval(fromYearInterval);
+            return prevFromYear;
+          }
+          return prevFromYear + (targetFromYear > prevFromYear ? 1 : -1);
+        });
+      }, fromYearStepDuration);
+    }
+  
+    if (toYearSteps > 0) {
+      toYearInterval = setInterval(() => {
+        setToYear((prevToYear) => {
+          if (prevToYear === targetToYear) {
+            if (toYearInterval) clearInterval(toYearInterval);
+            return prevToYear;
+          }
+          return prevToYear + (targetToYear > prevToYear ? 1 : -1);
+        });
+      }, toYearStepDuration);
+    }
+  };
+  
   useEffect(() => {
     if (hasBeenRendered.current) {
       // Animate when selectedDot changes
       spin();
+      animateYearChange();
 
       // Update the previous dot value after animation
       previousDotRef.current = selectedDot;
@@ -189,7 +234,7 @@ const YearCircle: React.FC = () => {
   return (
     <div className="year-circle-container">
       {/* From Year */}
-      <div className="year-text from-year">{data[selectedDot].fromYear}</div>
+      <div className="year-text from-year">{fromYear}</div>
 
       {/* Circle and Dots */}
       <svg className="circle-svg" width="600" height="600">
@@ -229,7 +274,7 @@ const YearCircle: React.FC = () => {
       </svg>
 
       {/* To Year */}
-      <div className="year-text to-year">{data[selectedDot].toYear}</div>
+      <div className="year-text to-year">{toYear}</div>
 
       {/* Navigation */}
       <Navigation selectedDot={selectedDot} dots={dots} handleDotSelection={setSelectedDot} />
