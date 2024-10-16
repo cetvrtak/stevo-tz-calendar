@@ -8,7 +8,7 @@ const App = () => {
         <div className="container">
             <div className="main">
                 <h1>Исторические даты</h1>
-                <YearCircle fromYear={2009} toYear={2015} />
+                <YearCircle />
             </div>
         </div>
     );

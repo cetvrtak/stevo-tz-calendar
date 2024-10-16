@@ -107,12 +107,7 @@ const data = [
 
 gsap.registerPlugin(MotionPathPlugin);
 
-interface YearCircleProps {
-  fromYear: number;
-  toYear: number;
-}
-
-const YearCircle: React.FC<YearCircleProps> = ({ fromYear, toYear }) => {
+const YearCircle: React.FC = () => {
   const radius = 268;
   const dots = 6;
   const startAngle = -60; // Start at -60 degrees to place dot #1 at the top right
