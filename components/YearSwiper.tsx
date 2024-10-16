@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/scss';
+import './YearSwiper.scss';
+import EventCard from './EventCard';
 
 type Event = {
     year: number,
@@ -24,8 +26,7 @@ const YearSwiper: React.FC<YearSwiperProps> = ({ events }) => {
         >
             {events.map((e) => (
                 <SwiperSlide key={e.year}>
-                    <span className='evt-year'>{e.year}</span>
-                    <span className='evt-desc'>{e.desc}</span>
+                    <EventCard event={e} />
                 </SwiperSlide>
             ))}
         </Swiper>
