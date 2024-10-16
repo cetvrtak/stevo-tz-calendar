@@ -4,6 +4,107 @@ import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import './YearCircle.scss';
 import Navigation from '../components/Navigation';
 
+const data = [
+  {
+    title: 'Музика',
+    yearFrom: 1969,
+    yearTo: 1977,
+    events: [
+      {
+        year: 1969,
+        desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat repellat delectus assumenda!',
+      },
+      {
+        year: 1970,
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde illo ipsa neque cumque? Reiciendis aspernatur sunt nulla, delectus minima officiis modi provident sequi et officia porro, vitae eaque dolore maiores.',
+      },
+      {
+        year: 1972,
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore id corrupti, ex consequatur ad ipsum sint hic laborum.',
+      },
+      {
+        year: 1975,
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+      },
+      {
+        year: 1977,
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ab saepe corporis delectus voluptatum, libero voluptate, blanditiis velit, cum nulla reprehenderit?',
+      },
+    ]
+  },
+  {
+    title: 'Кино',
+    yearFrom: 1987,
+    yearTo: 1991,
+    events: [
+      {
+        year: 1987,
+        desc: 'Хищник/Predator, США (реж. Джон Мактирнан)',
+      },
+      {
+        year: 1988,
+        desc: 'Кто подставил кролика Роджера/Who Framed Roger Rabbit, США (реж. Роберт Земекис)',
+      },
+      {
+        year: 1989,
+        desc: 'Назад в будущее 2/Back to the Future 2, США (реж. Роберт Земекис)',
+      },
+    ]
+  },
+  {
+    title: 'Литература',
+    yearFrom: 1992,
+    yearTo: 1997,
+    events: [
+      {
+        year: 1992,
+        desc: 'Нобеловская премия по литературе - Дерек Уолкотт, "За блестящий образец карибского эпоса в 64 разделах"',
+      }
+    ]
+  },
+  {
+    title: 'Балет',
+    yearFrom: 1919,
+    yearTo: 1965,
+    events: [
+      {
+        year: 1919,
+        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora voluptatem eos cumque perspiciatis officia laborum quo quae dolorum consectetur delectus.',
+      }
+    ]
+  },
+  {
+    title: 'Исскуство',
+    yearFrom: 2012,
+    yearTo: 2022,
+    events: [
+      {
+        year: 2012,
+        desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente eveniet beatae velit natus recusandae tempora modi rerum. Maiores, ipsum.',
+      },
+      {
+        year: 2016,
+        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit ullam, at a nesciunt est excepturi explicabo natus, similique quo facilis, earum quae!',
+      },
+      {
+        year: 2020,
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+      },
+    ]
+  },
+  {
+    title: 'Наука',
+    yearFrom: 0,
+    yearTo: 0,
+    events: [
+      {
+        year: 0,
+        desc: '',
+      }
+    ]
+  },
+]
+
 gsap.registerPlugin(MotionPathPlugin);
 
 interface YearCircleProps {
