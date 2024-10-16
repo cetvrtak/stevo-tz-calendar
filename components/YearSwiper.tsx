@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules';
 import 'swiper/scss';
+import 'swiper/scss/navigation';
 import './YearSwiper.scss';
 import EventCard from './EventCard';
 
@@ -14,15 +16,12 @@ interface YearSwiperProps {
 }
 
 const YearSwiper: React.FC<YearSwiperProps> = ({ events }) => {
-    useEffect(() => {
-        console.log('Initializing Swiper');
-
-    }, []);
-
     return (
         <Swiper
+            modules={[Navigation]}
             spaceBetween={80}
             slidesPerView={3}
+            navigation
         >
             {events.map((e) => (
                 <SwiperSlide key={e.year}>
