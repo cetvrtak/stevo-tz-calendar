@@ -10,7 +10,7 @@ interface NavigationProps {
 const Navigation: React.FC<NavigationProps> = ({ selectedDot, dots, handleDotSelection }) => {
     return (
         <div className="navigation">
-            <span>0{selectedDot + 1} / 0{dots}</span>
+            <span className="navigation-text">0{selectedDot + 1} / 0{dots}</span>
 
             <div className="navigation-arrows">
                 <svg

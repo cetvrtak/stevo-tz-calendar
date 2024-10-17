@@ -19,9 +19,16 @@ const YearSwiper: React.FC<YearSwiperProps> = ({ events }) => {
     return (
         <Swiper
             modules={[Navigation]}
-            spaceBetween={80}
-            slidesPerView={3}
-            navigation
+            spaceBetween={25}
+            slidesPerView={2}
+            navigation={false}
+            breakpoints={{
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 80,
+                  navigation: true,
+                },
+              }}
         >
             {events.map((e) => (
                 <SwiperSlide key={e.year}>

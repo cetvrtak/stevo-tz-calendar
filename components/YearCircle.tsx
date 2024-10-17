@@ -237,9 +237,6 @@ const YearCircle: React.FC = () => {
       <div className="year-circle-container">
         <h1 className='year-title'>Исторические даты</h1>
 
-        {/* From Year */}
-        <div className="year-text from-year">{fromYear}</div>
-
         {/* Circle and Dots */}
         <svg className="circle-svg" width="600" height="600">
           {/* Circle */}
@@ -277,8 +274,10 @@ const YearCircle: React.FC = () => {
           ))}
         </svg>
 
-        {/* To Year */}
-        <div className="year-text to-year">{toYear}</div>
+        <div className="year-container">
+          <div className="year-text from-year">{fromYear}</div>
+          <div className="year-text to-year">{toYear}</div>
+        </div>
 
         {/* Navigation */}
         <Navigation selectedDot={selectedDot} dots={dots} handleDotSelection={setSelectedDot} />

@@ -12,6 +12,15 @@
   position: absolute;
   top: 0;
   left: 0;
+  color: rgb(66, 86, 122);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 120%;
+  text-align: left;
+  max-width: 353px;
+  padding-left: 80px;
+  border-left: 5px solid;
+  border-image: linear-gradient(to bottom, #3877EE 0%, #EF5DA8 100%) 1;
 }
 
 .circle-svg {
@@ -45,6 +54,14 @@ g:hover .dot+text,
   display: flex;
 }
 
+.year-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+}
+
 .year-text {
   position: absolute;
   font-size: 200px;
@@ -61,5 +78,58 @@ g:hover .dot+text,
   &.to-year {
     color: #ef5da8;
     margin-left: 535px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .year-circle-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 56px;
+    position: initial;
+  }
+  .year-title {
+    color: rgb(66, 86, 122);
+    font-family: PT Sans;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: left;
+    padding-left: 0;
+    border: none;
+    max-width: 123px;
+  }
+
+  .circle-svg {
+    display: none;
+  }
+
+  .year-title,
+  .year-text,
+  .navigation {
+    position: initial;
+  }
+
+  .year-container {
+    width: 100%;
+    position: initial;
+    justify-content: space-between;
+    gap: 0;
+    border-bottom: 1px solid rgb(199, 205, 217);
+    padding-bottom: 56px;
+  }
+  
+  .year-text {
+    font-family: PT Sans;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 72px;
+    letter-spacing: -2%;
+    text-align: left;
+  }
+  .year-text.from-year,
+  .year-text.to-year {
+    margin: 0;
   }
 }
