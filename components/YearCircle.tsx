@@ -5,7 +5,14 @@ import './YearCircle.scss';
 import Navigation from '../components/Navigation';
 import YearSwiper from './YearSwiper';
 
-const data = [
+interface Category {
+  title: string,
+  fromYear: number,
+  toYear: number,
+  events: any,
+}
+
+const data: Category[] = [
   {
     title: 'Музика',
     fromYear: 1969,
@@ -243,7 +250,7 @@ const YearCircle: React.FC = () => {
           <circle cx="300" cy="300" r={radius} stroke="rgb(66, 86, 122, 0.2)" strokeWidth="1" fill="none" />
 
           {/* Dots around the circle */}
-          {slotsData.map((data, index) => (
+          {slotsData.map((slot, index) => (
             <g
               key={index}
               ref={(el) => (dotRefs.current[index] = el)} // Save each dot reference
@@ -252,23 +259,37 @@ const YearCircle: React.FC = () => {
               {/* Dot */}
               <circle
                 className={`dot ${selectedDot === index ? 'selected' : ''}`}
-                cx={data.x}
-                cy={data.y}
+                cx={slot.x}
+                cy={slot.y}
                 r={selectedDot === index ? 28 : 3}
                 fill={selectedDot === index ? 'rgb(244, 245, 249)' : 'black'}
                 style={{ cursor: 'pointer' }} // Smooth transition for dot position and size
               />
               {/* Dot Index (1-based) */}
               <text
-                x={data.x}
-                y={data.y}
+                x={slot.x}
+                y={slot.y}
                 textAnchor="middle"
                 dominantBaseline="middle"
                 fill="#42567A"
                 fontSize="20px"
                 fontWeight="400"
+                className="dot-number"
               >
                 {index + 1}
+              </text>
+              <text
+                x={slot.x + 43}
+                y={slot.y}
+                textAnchor="left"
+                dominantBaseline="middle"
+                fill="#42567A"
+                fontSize="20px"
+                fontWeight="400"
+                opacity={selectedDot === index ? '1' : '0'}
+                className="dot-title"
+              >
+                {data[selectedDot].title}
               </text>
             </g>
           ))}
