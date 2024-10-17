@@ -32,4 +32,8 @@
     .swiper {
         padding: 20px 0 88px;
     }
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none;
+    }
 }
