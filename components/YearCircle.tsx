@@ -300,6 +300,8 @@ const YearCircle: React.FC = () => {
           <div className="year-text to-year">{toYear}</div>
         </div>
 
+        <div className="dot-title-mob">{data[selectedDot].title}</div>
+
         {/* Navigation */}
         <Navigation selectedDot={selectedDot} dots={dots} handleDotSelection={setSelectedDot} />
       </div>

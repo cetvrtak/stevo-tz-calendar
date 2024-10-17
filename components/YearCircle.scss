@@ -72,6 +72,9 @@ g:hover .dot+text,
   letter-spacing: 0%;
   text-align: left;
 }
+.dot-title-mob {
+  display: none;
+}
 
 .year-container {
   position: absolute;
@@ -135,8 +138,6 @@ g:hover .dot+text,
     position: initial;
     justify-content: space-between;
     gap: 0;
-    border-bottom: 1px solid rgb(199, 205, 217);
-    padding-bottom: 56px;
   }
   
   .year-text {
@@ -150,5 +151,19 @@ g:hover .dot+text,
   .year-text.from-year,
   .year-text.to-year {
     margin: 0;
+  }
+
+  .dot-title-mob {
+    width: 100%;
+    display: flex;
+    color: rgb(66, 86, 122);
+    font-family: PT Sans;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0%;
+    text-align: left;
+    border-bottom: 1px solid rgb(199, 205, 217);
+    padding-bottom: 28px;
   }
 }
